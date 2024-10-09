@@ -55,7 +55,13 @@ class AuthProvider extends BaseProvider {
     return false;
   }
 
-  logout() {}
+  Future<void> logout() async {
+    setIsLoading(true);
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    await pref.remove("token");
+    isAuthed = false;
+    setIsLoading(false);
+  }
   renewtoken() {}
   getMe() {}
 }

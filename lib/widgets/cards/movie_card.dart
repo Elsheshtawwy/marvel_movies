@@ -68,7 +68,7 @@ class MovieCardStack extends StatelessWidget {
       borderRadius: BorderRadius.circular(16),
       child: Stack(
         children: [
-          SizedBox(
+          Container(
             width: double.infinity,
             child: Image.network(
               moviesModel.coverUrl,

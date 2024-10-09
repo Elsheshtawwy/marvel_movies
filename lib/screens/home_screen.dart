@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/helpers/constants.dart';
 import 'package:marvel/helpers/get_size.dart';
+import 'package:marvel/providers/auth_provider.dart';
 import 'package:marvel/providers/movies_providers.dart';
+import 'package:marvel/widgets/buttons/main_button.dart';
 import 'package:marvel/widgets/cards/movie_card.dart';
 import 'package:marvel/widgets/icons/custome_icon_button.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +27,23 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Consumer<MoviesProviders>(builder: (context, movieConsumer, _) {
       return Scaffold(
-        drawer: const Drawer(),
+        drawer: Drawer(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 32),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                MainButton(
+                  text: "log out",
+                  onTap: () {
+                    Provider.of<AuthProvider>(context, listen: false).logout();
+                  },
+                  borderRadius: 8.0,
+                ),
+              ],
+            ),
+          ),
+        ),
         appBar: AppBar(
           bottom: PreferredSize(
               preferredSize: Size.zero,
