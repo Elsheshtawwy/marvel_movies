@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 40,
                   ),
-                  CustomeTextFormFiled(
+                  CustomTextFormFiled(
                       label: "phone",
                       textEditingController: phoneController,
                       validate: (v) {
@@ -51,11 +51,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           return " phone mut be only in 10 characters ";
                         }
                         return null;
-                      }),
+                      },
+                      isPassword: false),
                   const SizedBox(
                     height: 25,
                   ),
-                  CustomeTextFormFiled(
+                  CustomTextFormFiled(
                       label: "password",
                       textEditingController: passwordController,
                       validate: (v) {
@@ -63,7 +64,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           return "password Cant be empty ";
                         }
                         return null;
-                      }),
+                      },
+                      isPassword: true),
+                  const SizedBox(
+                    height: 25,
+                  ),
                   const SizedBox(
                     height: 25,
                   ),
